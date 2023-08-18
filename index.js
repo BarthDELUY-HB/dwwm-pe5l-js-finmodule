@@ -1,16 +1,33 @@
-"use strict";
+class Product {
+    category;
+    name;
+    price;
+    availableStock;
 
-function sayHello() {
-    console.log('Bienvenue à vous, cher maître');
+    constructor(category, name, price, availableStock) {
+        this.category = category;
+        this.name = name;
+        this.price = price;
+        this.availableStock = availableStock;
+    }
+}
+
+function getProducts() {
+    return [
+        new Product("Livre", "Titre_1", 25, 0),
+        new Product("Livre", "Titre_2", 55, 45),
+        new Product("DVD", "Titre_3", 5, 13),
+        new Product("Plateau", "Titre_4", 15, 0)
+    ];
+}
+
+function getPriceOverTwenty() {
+    let products = getProducts();
+    const result = products.filter((p) => p.price > 20);
+    console.log(result);
     return;
 }
 
-window.addEventListener('load', sayHello);
-
-window.addEventListener('load', function () {
-    console.log('Bienvenue à vous, maître suprême !');
-});
-
 window.addEventListener('load', () => {
-    console.log('Bienvenue à vous, Robin vous salue !');
+    getPriceOverTwenty();
 });
