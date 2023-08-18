@@ -28,6 +28,13 @@ function getPriceOverTwenty() {
     return;
 }
 
+function getAvailableBooks() {
+    const result = getProducts().filter((p) => p.category === "Livre" && p.availableStock > 0);
+    console.log("Livres disponibles en stock :");
+    console.log(result);
+}
+
 window.addEventListener('load', () => {
     getPriceOverTwenty();
+    getAvailableBooks();
 });
